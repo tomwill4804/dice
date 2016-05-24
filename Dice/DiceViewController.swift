@@ -18,7 +18,7 @@ class DiceViewController: UICollectionViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0)
-        layout.headerReferenceSize = CGSizeMake(collectionView!.frame.size.width, 20.0);
+        layout.headerReferenceSize = CGSizeMake(collectionView!.frame.size.width, 35.0);
         collectionView?.collectionViewLayout = layout
         
         shake()
@@ -55,6 +55,7 @@ class DiceViewController: UICollectionViewController {
         
         let  cell = collectionView.dequeueReusableCellWithReuseIdentifier("diceCell", forIndexPath: indexPath)
         let label = UILabel(frame: cell.bounds)
+        label.textAlignment = .Center
         
         let diceArray = Array(bag.faces.values)[indexPath.section]
         
@@ -71,9 +72,15 @@ class DiceViewController: UICollectionViewController {
      override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
     
-            let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
-            
+            let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as! HeaderView
+        
+            let diceArray = Array(bag.faces.values)[indexPath.section]
+            let faces = Array(bag.faces.keys)[indexPath.section]
+        
+            header.descLabel.text = "\(diceArray.count) dice with \(faces) faces"
+        
             return header
+        
         
     }
     

@@ -16,7 +16,7 @@ class Die: AnyObject {
     
     
     //
-    //  create a die
+    //  create a dice
     //
     init(faces: Int) {
         
@@ -28,11 +28,10 @@ class Die: AnyObject {
     }
     
     //
-    //  set value
-    //
+
     func rollIt() {
         
-        value = Int(arc4random_uniform(UInt32(faces)))
+        value = Int(arc4random_uniform(UInt32(faces-1))+1)
         
     }
     

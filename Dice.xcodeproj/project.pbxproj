@@ -14,6 +14,7 @@
 		E3821B941CF4B3D20054117E /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3821B931CF4B3D20054117E /* DiceViewController.swift */; };
 		E3821B961CF4B4270054117E /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3821B951CF4B4270054117E /* Die.swift */; };
 		E3821B981CF4B4350054117E /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3821B971CF4B4350054117E /* Bag.swift */; };
+		E3821B9A1CF4D2E40054117E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3821B991CF4D2E40054117E /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E3821B931CF4B3D20054117E /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 		E3821B951CF4B4270054117E /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		E3821B971CF4B4350054117E /* Bag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		E3821B991CF4D2E40054117E /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 				E3821B811CF4B3780054117E /* AppDelegate.swift */,
 				E3821B971CF4B4350054117E /* Bag.swift */,
 				E3821B951CF4B4270054117E /* Die.swift */,
-				E3821B851CF4B3780054117E /* Main.storyboard */,
+				E3821B991CF4D2E40054117E /* HeaderView.swift */,
 				E3821B931CF4B3D20054117E /* DiceViewController.swift */,
+				E3821B851CF4B3780054117E /* Main.storyboard */,
 				E3821B881CF4B3780054117E /* Assets.xcassets */,
 				E3821B8A1CF4B3780054117E /* LaunchScreen.storyboard */,
 				E3821B8D1CF4B3780054117E /* Info.plist */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3821B9A1CF4D2E40054117E /* HeaderView.swift in Sources */,
 				E3821B981CF4B4350054117E /* Bag.swift in Sources */,
 				E3821B941CF4B3D20054117E /* DiceViewController.swift in Sources */,
 				E3821B961CF4B4270054117E /* Die.swift in Sources */,
