@@ -8,13 +8,16 @@
 
 import Foundation
 
-class Dice: AnyObject {
+class Die: AnyObject {
     
     
     var faces: Int
     var value: Int
     
     
+    //
+    //  create a die
+    //
     init(faces: Int) {
         
         self.faces = faces
@@ -24,6 +27,9 @@ class Dice: AnyObject {
         
     }
     
+    //
+    //  set value
+    //
     func rollIt() {
         
         value = Int(arc4random_uniform(UInt32(faces)))

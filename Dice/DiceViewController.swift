@@ -77,5 +77,13 @@ class DiceViewController: UICollectionViewController {
         
     }
     
+    @IBAction func rollButtonClicked(sender: AnyObject) {
+        
+        bag.rollIt()
+        
+        collectionView?.reloadData()
+        
+        
+    }
     
 }
