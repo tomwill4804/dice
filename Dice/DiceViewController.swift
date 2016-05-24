@@ -16,6 +16,11 @@ class DiceViewController: UICollectionViewController {
         
         super.viewDidLoad()
         
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0)
+        layout.headerReferenceSize = CGSizeMake(collectionView!.frame.size.width, 20.0);
+        collectionView?.collectionViewLayout = layout
+        
         shake()
         
     }
@@ -63,5 +68,14 @@ class DiceViewController: UICollectionViewController {
         
     }
     
-
+     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+    
+            let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+            
+            return header
+        
+    }
+    
+    
 }
