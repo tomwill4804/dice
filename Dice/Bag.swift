@@ -35,6 +35,10 @@ class Bag: AnyObject {
         
     }
     
+    
+    //
+    //  roll all the dice in the bag
+    //
     func rollIt() {
         
         for die in dice{

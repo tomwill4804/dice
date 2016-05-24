@@ -28,6 +28,8 @@ class Die: AnyObject {
     }
     
     //
+    //  roll the die
+    //
 
     func rollIt() {
         

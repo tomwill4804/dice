@@ -16,7 +16,8 @@ class DiceViewController: UICollectionViewController {
         
         super.viewDidLoad()
         
-        let layout = UICollectionViewFlowLayout()
+        let layout = Layout()
+    
         layout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0)
         layout.headerReferenceSize = CGSizeMake(collectionView!.frame.size.width, 35.0);
         collectionView?.collectionViewLayout = layout
@@ -83,6 +84,20 @@ class DiceViewController: UICollectionViewController {
         
         
     }
+    
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        animateCell(cell)
+    }
+    
+    func animateCell(cell: UICollectionViewCell) {
+        let animation = CABasicAnimation(keyPath: "cornerRadius")
+        animation.fromValue = 200
+        cell.layer.cornerRadius = 0
+        animation.toValue = 0
+        animation.duration = 1
+        cell.layer.addAnimation(animation, forKey: animation.keyPath)
+    }
+    
     
     @IBAction func rollButtonClicked(sender: AnyObject) {
         
