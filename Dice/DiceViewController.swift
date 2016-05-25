@@ -29,24 +29,25 @@ class DiceViewController: UICollectionViewController {
     func shake() {
         
         bag = Bag()
-        bag.addDice(5, faces: 4)
-        bag.addDice(6, faces: 6)
-        bag.addDice(3, faces: 10)
-        bag.addDice(5, faces: 20)
+        bag.addDice(5, faces: 4, collectionView: collectionView!)
+        bag.addDice(6, faces: 6, collectionView: collectionView!)
+        bag.addDice(3, faces: 10, collectionView: collectionView!)
+        bag.addDice(5, faces: 20, collectionView: collectionView!)
         
-        collectionView?.reloadData()
+        //collectionView?.reloadData()
         
     }
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return bag.faces.count
+      
+        return bag.facesArray.count
+
     }
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        let diceArray = Array(bag.faces.values)[section]
-        return diceArray.count
+    
+        return bag.facesArray[section].dice.count-1
         
     }
     
@@ -58,9 +59,9 @@ class DiceViewController: UICollectionViewController {
         let label = UILabel(frame: cell.bounds)
         label.textAlignment = .Center
         
-        let diceArray = Array(bag.faces.values)[indexPath.section]
-        
+        let diceArray = bag.facesArray[indexPath.section].dice
         let dice = diceArray[indexPath.row]
+        
         label.text = String(dice.value)
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         cell.contentView.addSubview(label)
@@ -75,10 +76,9 @@ class DiceViewController: UICollectionViewController {
     
             let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as! HeaderView
         
-            let diceArray = Array(bag.faces.values)[indexPath.section]
-            let faces = Array(bag.faces.keys)[indexPath.section]
+            let faces = bag.facesArray[indexPath.section]
         
-            header.descLabel.text = "\(diceArray.count) dice with \(faces) faces"
+            header.descLabel.text = "\(faces.dice.count) dice with \(faces.faces) faces"
         
             return header
         
@@ -86,7 +86,7 @@ class DiceViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        animateCell(cell)
+        //animateCell(cell)
     }
     
     func animateCell(cell: UICollectionViewCell) {
@@ -101,9 +101,9 @@ class DiceViewController: UICollectionViewController {
     
     @IBAction func rollButtonClicked(sender: AnyObject) {
         
-        bag.rollIt()
-        
-        collectionView?.reloadData()
+        shake()
+    
+        //collectionView?.insertItemsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)])
         
         
     }
