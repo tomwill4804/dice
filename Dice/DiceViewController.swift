@@ -88,6 +88,7 @@ class DiceViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         //animateCell(cell)
+        //NSThread.sleepForTimeInterval(0.1)
     }
     
     func animateCell(cell: UICollectionViewCell) {

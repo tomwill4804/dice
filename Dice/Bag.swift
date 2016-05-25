@@ -45,6 +45,8 @@ class Bag: AnyObject {
                 
                 }, completion: nil)
         }
+        
+        //NSThread.sleepForTimeInterval(0.8)
     }
 
 
