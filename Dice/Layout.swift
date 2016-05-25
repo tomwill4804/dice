@@ -14,7 +14,7 @@ class Layout: UICollectionViewFlowLayout {
     
         let attr = self.layoutAttributesForItemAtIndexPath(itemIndexPath)
         
-        //attr!.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.2, 0.2), M_PI)
+        attr!.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.2, 0.2), CGFloat(M_PI))
         
         attr!.center = CGPointMake(CGRectGetMidX(self.collectionView!.bounds), CGRectGetMaxY(self.collectionView!.bounds))
         

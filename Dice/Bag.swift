@@ -26,29 +26,28 @@ class Bag: AnyObject {
         
         for _ in 1...count {
             
-            let newDie = Die(faces: faces)
-            self.dice.append(newDie)
-            diceArray.append(newDie)
-            
-            facesArray[facesArray.count-1].dice = diceArray
-            
-            if collectionView != nil {
+            collectionView!.performBatchUpdates({
                 
-                if dice.count == 1000 {
-                    collectionView?.reloadData()
+                let newDie = Die(faces: faces)
+                self.dice.append(newDie)
+                diceArray.append(newDie)
+                
+                self.facesArray[self.facesArray.count-1].dice = diceArray
+                
+                let section = self.facesArray.count-1
+                let row = diceArray.count-1
+                
+                if row == 0 && section > 0 {
+                    collectionView?.insertSections(NSIndexSet(index: section))
                 }
-                else {
-                    let section = facesArray.count-1
-                    let row = diceArray.count-1
-                    collectionView!.performBatchUpdates({
-                        collectionView!.insertItemsAtIndexPaths([NSIndexPath(forRow: row, inSection: section)])
-                        }, completion: nil)
-                }
-            }
+                
+                collectionView!.insertItemsAtIndexPaths([NSIndexPath(forRow: row, inSection: section)])
+                
+                }, completion: nil)
         }
     }
-    
-    
+
+
     //
     //  roll all the dice in the bag
     //

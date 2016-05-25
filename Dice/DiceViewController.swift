@@ -33,8 +33,7 @@ class DiceViewController: UICollectionViewController {
         bag.addDice(6, faces: 6, collectionView: collectionView!)
         bag.addDice(3, faces: 10, collectionView: collectionView!)
         bag.addDice(5, faces: 20, collectionView: collectionView!)
-        
-        //collectionView?.reloadData()
+
         
     }
     
@@ -47,7 +46,7 @@ class DiceViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
-        return bag.facesArray[section].dice.count-1
+        return bag.facesArray[section].dice.count
         
     }
     
@@ -66,7 +65,9 @@ class DiceViewController: UICollectionViewController {
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         cell.contentView.addSubview(label)
         
-        cell.backgroundColor = UIColor.blueColor()
+        cell.backgroundColor = UIColor.whiteColor()
+        cell.layer.borderWidth=1.0
+        cell.layer.borderColor=UIColor.blueColor().CGColor
         return cell
         
     }
@@ -78,7 +79,7 @@ class DiceViewController: UICollectionViewController {
         
             let faces = bag.facesArray[indexPath.section]
         
-            header.descLabel.text = "\(faces.dice.count) dice with \(faces.faces) faces"
+            header.descLabel.text = "dice with \(faces.faces) faces"
         
             return header
         
@@ -101,9 +102,9 @@ class DiceViewController: UICollectionViewController {
     
     @IBAction func rollButtonClicked(sender: AnyObject) {
         
+        bag = Bag()
+        collectionView?.reloadData()
         shake()
-    
-        //collectionView?.insertItemsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)])
         
         
     }
