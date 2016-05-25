@@ -109,4 +109,15 @@ class DiceViewController: UICollectionViewController {
         
     }
     
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        
+        if motion == .MotionShake {
+            rollButtonClicked(self)
+        }
+    }
+    
 }
