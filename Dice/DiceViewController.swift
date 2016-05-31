@@ -70,6 +70,7 @@ class DiceViewController: UICollectionViewController {
         cell.layer.borderColor=UIColor.blueColor().CGColor
         return cell
         
+        
     }
     
      override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
